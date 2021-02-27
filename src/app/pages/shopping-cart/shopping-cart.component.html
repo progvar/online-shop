@@ -1,1 +1,24 @@
-<p>shopping-cart works!</p>
+<div class="cart-container">
+    <ng-container *ngTemplateOutlet="(cart$ | async)?.size === 0 ? emptyCart : productList"></ng-container>
+    
+</div>
+
+<ng-template #productList>
+    <mat-card *ngFor="let product of cart$ | async | keyvalue">
+        <mat-card-header>
+            <mat-card-title>{{ product.value.name }}</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <p>Quantity: {{ product.value.amount }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="removeFromCart(product.key)">Remove from Cart</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-template>
+
+<ng-template #emptyCart>
+    <span>Your cart is empty...</span>
+</ng-template>

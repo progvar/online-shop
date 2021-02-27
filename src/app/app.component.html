@@ -9,7 +9,7 @@
 
     <nav>
         <a routerLink="cart">
-            <mat-icon aria-label="shopping cart icon">shopping_cart</mat-icon>
+            <mat-icon [matBadge]="productsInCart$ | async" matBadgeColor="warn" aria-label="shopping cart icon">shopping_cart</mat-icon>
         </a> 
     </nav>
 </header>
