@@ -1,0 +1,28 @@
+@import "~@angular/material/theming";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .cart-container {
+    height: 100%;
+
+    mat-card {
+      margin: 24px 0;
+      background-color: mat-color(mat-palette($mat-grey, 200));
+    }
+  }
+
+  .empty-cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    .empty-cart-message {
+      color: #adadad;
+    }
+  }
+}
