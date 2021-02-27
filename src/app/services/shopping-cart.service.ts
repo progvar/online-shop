@@ -15,8 +15,6 @@ export class ShoppingCartService {
         const cart = this.cart.set(id, { ...cartItem, amount: cartItem.amount + 1 });
 
         this.cart$.next(cart);
-
-        console.log(cart)
         
         return cart;
     }
