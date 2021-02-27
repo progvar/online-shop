@@ -1,6 +1,5 @@
 <div class="cart-container">
     <ng-container *ngTemplateOutlet="(cart$ | async)?.size === 0 ? emptyCart : productList"></ng-container>
-    
 </div>
 
 <ng-template #productList>

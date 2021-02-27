@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from 'src/app/models/products.model';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -7,13 +7,24 @@ import { ApiService } from 'src/app/services/api.service';
     providedIn: 'any'
 })
 export class ProductService {
-  constructor(private apiService: ApiService) {}
+  private allProducts$: BehaviorSubject<Product[]> = new BehaviorSubject([] as Product[]);
+  private recommendedProducts$: BehaviorSubject<Product[]> = new BehaviorSubject([] as Product[]);
+
+  constructor(private apiService: ApiService) {
+    this.apiService
+      .getAllProducts()
+      .subscribe(allProducts => this.allProducts$.next(allProducts));
+
+    this.apiService
+      .getRecommendedProducts()
+      .subscribe(recommendedProducts => this.recommendedProducts$.next(recommendedProducts));
+  }
 
   getAllProducts(): Observable<Product[]> {
-    return this.apiService.getAllProducts();
+    return this.allProducts$.asObservable();
   }
 
   getRecommendedProducts(): Observable<Product[]> {
-    return this.apiService.getRecommendedProducts();
+    return this.recommendedProducts$.asObservable();
   }
 }

@@ -9,7 +9,7 @@ import { ProductService } from './products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  products$ = this.productService.getAllProducts();
+  products$ = this.productService.getRecommendedProducts();
   recommendedProducts$ = this.productService.getRecommendedProducts();
 
   constructor(
