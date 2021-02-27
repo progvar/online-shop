@@ -2,6 +2,7 @@
 
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -17,7 +18,7 @@
       min-width: 200px;
       max-width: 280px;
       margin: 24px 0;
-      background-color: #e2e2e2;
+      background-color: mat-color(mat-palette($mat-grey, 200));
 
       ::ng-deep div.mat-card-header-text {
         margin: 0;
@@ -31,6 +32,8 @@
       }
 
       mat-card-content {
+        height: 68px;
+
         p {
           overflow: hidden;
           display: -webkit-box;
@@ -48,5 +51,9 @@
     @media screen and (max-width: 600px) {
       flex-direction: column;
     }
+  }
+
+  mat-progress-bar {
+    border-radius: 0 0 4px 4px;
   }
 }

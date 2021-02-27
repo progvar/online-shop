@@ -9,8 +9,9 @@ import { ProductService } from './products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  products$ = this.productService.getRecommendedProducts();
+  products$ = this.productService.getAllProducts();
   recommendedProducts$ = this.productService.getRecommendedProducts();
+  isLoading$ = this.productService.isDataLoading$;
 
   constructor(
     private productService: ProductService, 

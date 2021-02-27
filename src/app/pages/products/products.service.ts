@@ -10,6 +10,8 @@ export class ProductService {
   private allProducts$: BehaviorSubject<Product[]> = new BehaviorSubject([] as Product[]);
   private recommendedProducts$: BehaviorSubject<Product[]> = new BehaviorSubject([] as Product[]);
 
+  isDataLoading$: Observable<boolean> = this.apiService.getLoadingState();
+
   constructor(private apiService: ApiService) {
     this.apiService
       .getAllProducts()

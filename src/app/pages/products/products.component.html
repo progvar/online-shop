@@ -1,3 +1,5 @@
+<mat-progress-bar *ngIf="isLoading$ | async" mode="indeterminate" color="warn"></mat-progress-bar>
+
 <div class="product-container">
     <mat-card *ngFor="let product of recommendedProducts$ | async">
         <mat-card-header>
