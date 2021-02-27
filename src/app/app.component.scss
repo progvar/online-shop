@@ -1,0 +1,18 @@
+@import "~@angular/material/theming";
+
+:host {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 312px;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: mat-color(mat-palette($mat-indigo, 500));
+    border-radius: 4px;
+    color: #ffffff;
+  }
+}
