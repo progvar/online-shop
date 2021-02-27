@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProductToAdd } from 'src/app/models/models';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ProductService } from './products.service';
 
 @Component({
@@ -6,14 +8,18 @@ import { ProductService } from './products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent {
   products$ = this.productService.getAllProducts();
   recommendedProducts$ = this.productService.getRecommendedProducts();
+  isLoading$ = this.productService.isDataLoading$;
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService, 
+    private shoppingCartService: ShoppingCartService
+  ) {}
 
-  ngOnInit(): void {
-
+  addToCart(cartItem: ProductToAdd) {
+    this.shoppingCartService.addToCart(cartItem);
   }
 
 }

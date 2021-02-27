@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'online-shop';
+  productsInCart$ = this.shoppingCartService.getCartContent().pipe(map(cart => cart.size));
+
+  constructor(private shoppingCartService: ShoppingCartService) {}
 }
