@@ -1,13 +1,15 @@
-import { MatTableModule } from '@angular/material/table';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { ProductsComponent } from './products.component';
 import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        MatTableModule,
+        MatCardModule,
+        MatButtonModule,
         ProductsRoutingModule
     ],
     declarations: [ProductsComponent],

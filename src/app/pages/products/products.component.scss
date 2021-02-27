@@ -1,0 +1,52 @@
+@import "~@angular/material/theming";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1448px;
+
+    .mat-card {
+      flex-basis: 15%;
+      min-width: 200px;
+      max-width: 280px;
+      margin: 24px 0;
+      background-color: #e2e2e2;
+
+      ::ng-deep div.mat-card-header-text {
+        margin: 0;
+
+        .mat-card-title {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-width: 208px;
+        }
+      }
+
+      mat-card-content {
+        p {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+      }
+
+      mat-card-actions {
+        position: relative;
+        bottom: 0;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+}
