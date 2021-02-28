@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
-
 import { ProductsComponent } from './products.component';
 import { ProductService } from './products.service';
 
