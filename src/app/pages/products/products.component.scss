@@ -14,6 +14,7 @@
 
     .mat-card {
       flex: 0 1 208px;
+      height: 356px;
       margin: 24px;
       background-color: mat-color(mat-palette($mat-grey, 200));
 
@@ -26,6 +27,10 @@
           overflow: hidden;
           max-width: 208px;
         }
+      }
+
+      img {
+        height: 180px;
       }
 
       .mat-card-content {
