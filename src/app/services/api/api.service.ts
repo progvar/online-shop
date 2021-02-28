@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Product } from '../../models/products.model';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators'
+import { Product } from '../../models/models';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,16 @@ export class ApiService {
   getRecommendedProducts(): Observable<Product[]> {
     this.isLoading$.next(true);
 
-    return this.http.get<Product[]>('http://localhost:8080/recommendeds').pipe(tap(() => this.isLoading$.next(false)));
+    return this.http.get<Product[]>('http://localhost:8080/recommendeds')
+      .pipe(
+        catchError(this.handleError),
+        tap(() => this.isLoading$.next(false)));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error(error);
+
+    return throwError(error);
   }
 
   getLoadingState() {
