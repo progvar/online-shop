@@ -4,14 +4,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product, ProductToAdd } from 'src/app/models/models';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 import { ProductsComponent } from './products.component';
-import { ProductService } from './products.service';
+import { ProductsService } from './products.service';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
   let isLoading$: BehaviorSubject<boolean>;
   let recommendedProducts$: BehaviorSubject<Product[]>;
-  let mockProductService:{
+  let mockProductsService:{
     isDataLoading$: BehaviorSubject<boolean>;
     getRecommendedProducts: () => Observable<Product[]>;
   }
@@ -22,7 +22,7 @@ describe('ProductsComponent', () => {
   beforeEach(async () => {
     isLoading$ = new BehaviorSubject(true as boolean);
     recommendedProducts$ = new BehaviorSubject([] as Product[]);
-    mockProductService = {
+    mockProductsService = {
       isDataLoading$: isLoading$,
       getRecommendedProducts: () => recommendedProducts$.asObservable()
     }
@@ -33,7 +33,7 @@ describe('ProductsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ProductsComponent],
       providers: [
-        { provide: ProductService, useValue: mockProductService },
+        { provide: ProductsService, useValue: mockProductsService },
         { provide: ShoppingCartService, useValue: mockShoppingCartService }
       ]
     })

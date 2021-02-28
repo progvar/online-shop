@@ -6,7 +6,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 @Injectable({
     providedIn: 'any'
 })
-export class ProductService {
+export class ProductsService {
   private recommendedProducts$: BehaviorSubject<Product[]> = new BehaviorSubject([] as Product[]);
 
   isDataLoading$: Observable<boolean> = this.apiService.getLoadingState();

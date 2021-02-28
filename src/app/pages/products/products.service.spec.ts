@@ -3,11 +3,11 @@ import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { TestScheduler } from  'rxjs/testing'
 import { ApiService } from 'src/app/services/api/api.service';
 import { Product } from 'src/app/models/models';
-import { ProductService } from './products.service';
+import { ProductsService } from './products.service';
 
-describe('ProductsService', () => {
+describe('ProductService', () => {
     let testScheduler: TestScheduler;
-    let productService: ProductService;
+    let productsService: ProductsService;
     let isLoading$: BehaviorSubject<boolean>;
     let recommendedProducts$: BehaviorSubject<Product[]>;
     let mockApiService: {
@@ -29,22 +29,22 @@ describe('ProductsService', () => {
 
         TestBed.configureTestingModule({
             providers: [
-                ProductService,
+                ProductsService,
                 { provide: ApiService, useValue: mockApiService },
             ]
         });
 
-        productService = TestBed.inject(ProductService);
+        productsService = TestBed.inject(ProductsService);
     });
 
     it('should create', () => {
-        expect(productService).toBeDefined();
+        expect(productsService).toBeDefined();
     });
 
     it('should get the loading state from the ApiService', () => testScheduler.run(({ expectObservable }) => {
         const loadingStateChanges$ = new ReplaySubject<boolean>();
 
-        productService.isDataLoading$.subscribe(loadingStateChanges$)
+        productsService.isDataLoading$.subscribe(loadingStateChanges$)
 
         isLoading$.next(false);
 
@@ -64,7 +64,7 @@ describe('ProductsService', () => {
         
         recommendedProducts$.next(expectedProducts);
 
-        productService.getRecommendedProducts()
+        productsService.getRecommendedProducts()
             .subscribe(recommendedProducts => {
                 expect(recommendedProducts).toEqual(expectedProducts);
                 done();
