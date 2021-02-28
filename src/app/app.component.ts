@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { ShoppingCartService } from './services/shopping-cart.service';
+import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-root',

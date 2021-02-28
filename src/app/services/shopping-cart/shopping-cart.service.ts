@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CartItem, ProductToAdd } from '../models/models';
+import { CartItem, ProductToAdd } from '../../models/models';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +11,11 @@ export class ShoppingCartService {
 
     addToCart(productToAdd: ProductToAdd): Map<number, CartItem> {
         const { id, name } = productToAdd;
+
+        if (id == null || !Number.isInteger(id) || id < 0 || !name) {
+            return this.cart;
+        }
+
         const cartItem = this.cart.get(id) || { name, amount: 0 };
         const cart = this.cart.set(id, { ...cartItem, amount: cartItem.amount + 1 });
 
