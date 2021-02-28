@@ -12,10 +12,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getAllProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>('http://localhost:8080/products');
-  }
-
   getRecommendedProducts(): Observable<Product[]> {
     this.isLoading$.next(true);
 
