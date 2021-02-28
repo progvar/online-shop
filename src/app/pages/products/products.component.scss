@@ -8,16 +8,13 @@
 
   .product-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
     max-width: 1448px;
 
     .mat-card {
-      flex-basis: 15%;
-      min-width: 200px;
-      max-width: 280px;
-      margin: 24px 0;
+      flex: 0 1 208px;
+      margin: 24px;
       background-color: mat-color(mat-palette($mat-grey, 200));
 
       ::ng-deep div.mat-card-header-text {
