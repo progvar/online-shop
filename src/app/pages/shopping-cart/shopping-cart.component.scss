@@ -9,9 +9,17 @@
   .cart-container {
     height: 100%;
 
-    mat-card {
+    .mat-card {
       margin: 24px 0;
       background-color: mat-color(mat-palette($mat-grey, 200));
+
+      .mat-card-content {
+        margin: 0 16px;
+      }
+
+      .mat-card-actions {
+        margin-left: 0;
+      }
     }
   }
 
