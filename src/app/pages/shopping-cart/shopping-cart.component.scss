@@ -10,8 +10,16 @@
     height: 100%;
 
     .mat-card {
+      width: 280px;
       margin: 24px 0;
       background-color: mat-color(mat-palette($mat-grey, 200));
+
+      .mat-card-title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 208px;
+      }
 
       .mat-card-content {
         margin: 0 16px;
