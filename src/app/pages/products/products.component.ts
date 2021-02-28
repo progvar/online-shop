@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductToAdd } from 'src/app/models/models';
-import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
 import { ProductService } from './products.service';
 
 @Component({
