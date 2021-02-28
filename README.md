@@ -24,7 +24,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## About the app
 
 - The app is built using basic MVC principles with some Reactive programming (RxJS)
-- Currently two routes (`/products` and `/cart`) are defined, which import their own modules in a lazy-loaded manner for better app loading and memory usage.
+- Currently two routes (`/products` and `/cart`) are defined, which import their own modules in a lazy-loaded manner for faster app load and better memory usage.
 - The current functionalities are:
   - Fetching the recommended products
   - All of these producs can be added to/ removed from the shopping cart
