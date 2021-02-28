@@ -19,13 +19,6 @@
 
       ::ng-deep div.mat-card-header-text {
         margin: 0;
-
-        .mat-card-title {
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          max-width: 208px;
-        }
       }
 
       .mat-card-content {
