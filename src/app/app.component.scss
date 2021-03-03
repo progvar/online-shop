@@ -9,8 +9,6 @@
 
   header {
     display: flex;
-    flex-basis: 10%;
-    flex-shrink: 0;
     align-items: center;
     background-color: mat-color(mat-palette($mat-indigo, 500));
     border-radius: 4px 4px 0 0;
@@ -35,9 +33,5 @@
         }
       }
     }
-  }
-
-  app-products {
-    flex-basis: 90%;
   }
 }
